@@ -10,7 +10,7 @@ class Cars {
     }
 
     speedupCar() {
-        return this.speed = 30;
+        this.speed += 30;
     }
 
     drawCar() {

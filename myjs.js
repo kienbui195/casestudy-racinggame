@@ -13,30 +13,25 @@ window.addEventListener('keydown',function(event,KeyboardEvent) {
             car.moveRight();
             break;
         case 18:
-            car.speedupCar();
+            speedupCars();
     }
 })
 
+function speedupCars() {
+    if (event.ctrlKey) {
+        car.speedupCar();
+    }
+}
 
 function clearCanvas() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
 function drawRBrickWall() {
-    brickwall.x = Math.floor(Math.random()*3);
-    switch (brickwall.x) {
-        case 0:
-            brickwall.drawRandomBrickWall(0);
-            break;
-        case 1:
-            brickwall.drawRandomBrickWall(250);
-            break;
-        case 2:
-            brickwall.drawRandomBrickWall(450);
-            break;
-
+    brickwall.setX(Math.floor(Math.random()*350));
+    brickwall.drawBrickWall();
     }
-}
+
 
 function checkCollisions() {
     if (brickwall.y + brickwall.height >= car.y
@@ -47,13 +42,13 @@ function checkCollisions() {
         } else if (brickwall.y + brickwall.height >= canvas.height) {
             point++;
             brickwall.y = 0;
-            brickwall.drawRBrickWall();
+            drawRBrickWall();
             if (point >= 7) {
-                brickwall.setSpeedBrickDrop(15);
+                brickwall.setSpeedBrickDrop(10);
             } else if (point >= 20) {
-                brickwall.setSpeedBrickDrop(20);
+                brickwall.setSpeedBrickDrop(15);
             } else if (point >= 40) {
-                brickwall.setSpeedBrickDrop(40);
+                brickwall.setSpeedBrickDrop(30);
             }
             brickwall.moveDown();
             
@@ -66,6 +61,7 @@ function play() {
     brickwall.moveDown();
     car.drawCar();
     checkCollisions();
+    document.getElementById('score').innerHTML = 'Score: ' + point;  
 }
 
 

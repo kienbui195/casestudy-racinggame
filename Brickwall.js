@@ -26,12 +26,7 @@ class Brickwall {
         this.speed = speed;
     }
 
-    drawRandomBrickWall (x) {
-        this.ctx.beginPath();
-        const imgbrick = new Image(this.width,this.height);
-        imgbrick.src = 'tuonggach2.png';
-        this.ctx.drawImage(imgbrick,x,this.y);
-        this.ctx.fill();
-        this.ctx.closePath();
+    setX(x) {
+        return this.x = x;
     }
 }
