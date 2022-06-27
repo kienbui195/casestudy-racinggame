@@ -1,38 +1,43 @@
 let canvas = document.getElementById('racing-game');
 let ctx = canvas.getContext('2d');
-let car = new Cars(250,450,150,150);
-let brickwall = new Brickwall(0,0,150,150);
+let car = new Cars(250,450,100,100);
+let brickwall = new Brickwall(0,0,100,100);
 let point = 0;
 
+
+
+//Tinh nang cho xe di chuyen
 window.addEventListener('keydown',function(event,KeyboardEvent) {
     switch(event.keyCode) {
         case 37:
-            car.moveLeft();
+            if (car.x >= 0) {
+                car.moveLeft();
+            }
             break;
         case 39:
-            car.moveRight();
+            if (car.x + car.width < 450) {
+                car.moveRight();
+            }
             break;
-        case 18:
-            speedupCars();
+        case 17:
+            brickwall.setSpeedUpDrop();
+            setTimeout('brickwall.setSpeedDownDrop()',5000);
+            break;
     }
 })
 
-function speedupCars() {
-    if (event.ctrlKey) {
-        car.speedupCar();
-    }
-}
-
+//Xoa canvas
 function clearCanvas() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
+//Ve brickwall random position x
 function drawRBrickWall() {
     brickwall.setX(Math.floor(Math.random()*350));
     brickwall.drawBrickWall();
     }
 
-
+//Check va cham
 function checkCollisions() {
     if (brickwall.y + brickwall.height >= car.y
         && brickwall.x >= car.x - brickwall.width
@@ -41,7 +46,7 @@ function checkCollisions() {
             clearInterval(setInterval(play,50));
         } else if (brickwall.y + brickwall.height >= canvas.height) {
             point++;
-            brickwall.y = 0;
+            brickwall.y = -brickwall.height;
             drawRBrickWall();
             if (point >= 7) {
                 brickwall.setSpeedBrickDrop(10);
@@ -55,14 +60,23 @@ function checkCollisions() {
         }
 }
 
+//Ham chay choi game
 function play() {
     clearCanvas();
     brickwall.drawBrickWall();
     brickwall.moveDown();
     car.drawCar();
     checkCollisions();
+    console.log(car.x);
+    console.log(car.width);
     document.getElementById('score').innerHTML = 'Score: ' + point;  
 }
 
-
+//set tgian lap lai
 setInterval(play,50);
+
+
+//Ktra car cham canh canvas
+/*function checkCar() {
+
+}*/
