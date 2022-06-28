@@ -1,3 +1,18 @@
 .canvas {
     background: url('duongdua.png');
 }
+
+.title {
+    text-align: center;
+    color: black;
+}
+
+.score {
+    text-align: center;
+}
+
+.highscoretable {
+    
+    color: white;
+    background-color: red;
+}

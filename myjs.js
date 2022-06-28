@@ -3,6 +3,7 @@ let ctx = canvas.getContext('2d');
 let car = new Cars(250,450,100,100);
 let brickwall = new Brickwall(0,0,100,100);
 let point = 0;
+let scoretable = document.getElementById('result');
 
 
 
@@ -21,7 +22,7 @@ window.addEventListener('keydown',function(event,KeyboardEvent) {
             break;
         case 17:
             brickwall.setSpeedUpDrop();
-            setTimeout('brickwall.setSpeedDownDrop()',5000);
+            setTimeout('brickwall.setSpeedDownDrop()',7000);
             break;
     }
 })
@@ -48,10 +49,10 @@ function checkCollisions() {
             point++;
             brickwall.y = -brickwall.height;
             drawRBrickWall();
-            if (point >= 7) {
-                brickwall.setSpeedBrickDrop(10);
-            } else if (point >= 20) {
+            if (point >= 10) {
                 brickwall.setSpeedBrickDrop(15);
+            } else if (point >= 20) {
+                brickwall.setSpeedBrickDrop(20);
             } else if (point >= 40) {
                 brickwall.setSpeedBrickDrop(30);
             }
@@ -80,3 +81,6 @@ setInterval(play,50);
 /*function checkCar() {
 
 }*/
+
+/*let score = point.toString();
+window.localStorage.setItem('highscore',score);*/
