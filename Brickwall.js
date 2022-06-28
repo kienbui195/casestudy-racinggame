@@ -5,7 +5,7 @@ class Brickwall {
         this.width = width;
         this.height = height;
         this.speed = 5;
-        this.canvas = document.getElementById('racing-game');
+        this.canvas = document.getElementById('driving-game');
         this.ctx = this.canvas.getContext('2d');
     }
 
