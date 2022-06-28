@@ -10,13 +10,13 @@ class Brickwall {
     }
 
 
-    //gach roi
+    //method brickwall move down
     moveDown() {
         this.y += this.speed;
     }
 
 
-    //ve tuong gach
+    //draw brickwall
     drawBrickWall() {
         this.ctx.beginPath();
         const imgbrick = new Image(this.width,this.height);
@@ -27,25 +27,26 @@ class Brickwall {
     }
 
 
-    //thay doi toc do roi cua tuong gach
+    //change drop speed of brickwall
     setSpeedBrickDrop(speed) {
         this.speed = speed;
     }
 
 
-    //thay doi vi tri ban dau cua tuong gach
+    //change first x position of brickwall
     setX(x) {
-        return this.x = x;
+        this.x = x;
     }
 
+    //set drop speed 
     setSpeedUpDrop() {
         this.speed += 10;
     }
 
+    //set drop speed
     setSpeedDownDrop() {
         if (this.speed > 10) {
             this.speed -= 10;
         }
     }
-
 }

@@ -7,7 +7,7 @@ let scoretable = document.getElementById('result');
 
 
 
-//Tinh nang cho xe di chuyen
+//Move Car
 window.addEventListener('keydown',function(event,KeyboardEvent) {
     switch(event.keyCode) {
         case 37:
@@ -22,29 +22,29 @@ window.addEventListener('keydown',function(event,KeyboardEvent) {
             break;
         case 17:
             brickwall.setSpeedUpDrop();
-            setTimeout('brickwall.setSpeedDownDrop()',7000);
+            setTimeout('brickwall.setSpeedDownDrop()',6000);
             break;
     }
 })
 
-//Xoa canvas
+//Clear canvas
 function clearCanvas() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
-//Ve brickwall random position x
+//Draw brickwall random position x
 function drawRBrickWall() {
     brickwall.setX(Math.floor(Math.random()*350));
     brickwall.drawBrickWall();
     }
 
-//Check va cham
+//Check Collision
 function checkCollisions() {
     if (brickwall.y + brickwall.height >= car.y
         && brickwall.x >= car.x - brickwall.width
         && brickwall.x <= car.x + car.width) {
-            alert('Ban da thua. Diem so cua ban la: ' + point);
-            clearInterval(setInterval(play,50));
+            alert('You Lost!!!  Your Score: ' + point);
+            clearInterval(time);
         } else if (brickwall.y + brickwall.height >= canvas.height) {
             point++;
             brickwall.y = -brickwall.height;
@@ -61,7 +61,7 @@ function checkCollisions() {
         }
 }
 
-//Ham chay choi game
+//Play Game
 function play() {
     clearCanvas();
     brickwall.drawBrickWall();
@@ -73,14 +73,5 @@ function play() {
     document.getElementById('score').innerHTML = 'Score: ' + point;  
 }
 
-//set tgian lap lai
-setInterval(play,50);
-
-
-//Ktra car cham canh canvas
-/*function checkCar() {
-
-}*/
-
-/*let score = point.toString();
-window.localStorage.setItem('highscore',score);*/
+//Set time loop
+let time = setInterval(play,50);

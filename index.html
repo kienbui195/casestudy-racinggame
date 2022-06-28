@@ -9,15 +9,18 @@
 
 <table>
     <tr>
-        <th colspan="2" id="title">Racing Game</th>
+        <td rowspan="3"><canvas id="racing-game" width="500px" height="600px" class="canvas"></canvas></td>
+        <td><p id="title">Racing Game</p></td>
     </tr>
     <tr>
-        <td><canvas id="racing-game" style="border: 2px solid red" width="500px" height="600px" class="canvas"></canvas></td>
-        <td><p id="score">Score: </p>
-            <p>How to play? <br> Press Leftkey to turn left <br> Press Rightkey to turn Right
-            <br> Press Ctrlkey to speed up Car <br> Press Shiftkey to speed down Car </p>
-            <button id="highscoretable" onclick="screenhighscore()">High Score</button>
-            <div id="result"></div>
+        <td><p id="score">Score: </p></td>
+    </tr>
+    <tr>
+        <td>
+        <p id="content"><span id="title2">How to play?</span> 
+            <br> Press <img src="leftbutton.png" width="25px" height="25px" alt="leftbutton"> to turn Left 
+            <br> Press <img src="rightbutton.png" width="25px" height="25px" alt="rightbutton"> to turn Right
+            <br> Press <img src="Ctrlbutton.png" width="25px" height="25px" alt="Ctrlbutton">  to speed up Car</p>
         </td>
     </tr>
 </table>

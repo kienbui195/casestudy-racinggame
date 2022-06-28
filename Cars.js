@@ -10,30 +10,30 @@ class Cars {
     }
 
 
-    //thay doi toc do cua xe
+    //change speed of car
     speedupCar(speed) {
         this.speed = speed;
     }
 
 
-    //ve 1 chiec xe
+    //draw a car
     drawCar() {
         this.ctx.beginPath();
         const img = new Image(this.width,this.height);
         img.src = 'Car.png';
         this.ctx.drawImage(img,this.x,this.y);
-        //this.ctx.fill();
+        this.ctx.fill();
         this.ctx.closePath();
     }
 
 
-    //di chuyen sang phai
+    //move car to right
     moveRight() {
         this.x += this.speed;
     }
 
 
-    //dui chuyen sang trai
+    //move car to left
     moveLeft() {
         this.x -= this.speed;
        

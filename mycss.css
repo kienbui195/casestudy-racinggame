@@ -1,18 +1,34 @@
 .canvas {
     background: url('duongdua.png');
+    border: 6px solid red;
 }
 
-.title {
+#title {
+    font-size: 60px;
     text-align: center;
+    color: red;
+}
+
+#score {
+    text-align: center;
+    font-size: 50px;
+    color: yellow;
+    background-color: blue;
+}
+
+table {
+    width: 75%;
+    height: 70%;
+}
+
+#content {
+    font-size: 40px;
     color: black;
+    border: 2px solid black;
 }
 
-.score {
-    text-align: center;
-}
-
-.highscoretable {
-    
-    color: white;
-    background-color: red;
+#title2 {
+    font-size: 35px;
+    color: red;
+    font-weight: 700;
 }
