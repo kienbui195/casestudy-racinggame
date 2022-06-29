@@ -9,12 +9,10 @@ class Cars {
         this.ctx = this.canvas.getContext('2d');
     }
 
-
     //change speed of car
     speedupCar(speed) {
         this.speed = speed;
     }
-
 
     //draw a car
     drawCar() {
@@ -26,12 +24,10 @@ class Cars {
         this.ctx.closePath();
     }
 
-
     //move car to right
     moveRight() {
         this.x += this.speed;
     }
-
 
     //move car to left
     moveLeft() {

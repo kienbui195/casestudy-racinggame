@@ -9,12 +9,10 @@ class Brickwall {
         this.ctx = this.canvas.getContext('2d');
     }
 
-
     //method brickwall move down
     moveDown() {
         this.y += this.speed;
     }
-
 
     //draw brickwall
     drawBrickWall() {
@@ -26,12 +24,10 @@ class Brickwall {
         this.ctx.closePath();
     }
 
-
     //change drop speed of brickwall
     setSpeedBrickDrop(speed) {
         this.speed = speed;
     }
-
 
     //change first x position of brickwall
     setX(x) {
