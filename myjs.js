@@ -44,10 +44,9 @@ function checkCollisions() {
             alert('You Lost!!!  Your Score: ' + point);
         } else if (brickwall.y + brickwall.height >= canvas.height) {
             point++;
+            levelupdificult();
             brickwall.y = -brickwall.height;
             drawRandomBrickWall();
-            levelupdificult();
-            brickwall.moveDown();
         }
 }
 
