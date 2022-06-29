@@ -36,6 +36,5 @@ class Cars {
     //move car to left
     moveLeft() {
         this.x -= this.speed;
-       
     }
 }

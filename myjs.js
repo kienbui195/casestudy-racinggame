@@ -3,9 +3,6 @@ let ctx = canvas.getContext('2d');
 let car = new Cars(250,450,100,100);
 let brickwall = new Brickwall(0,0,100,100);
 let point = 0;
-let scoretable = document.getElementById('result');
-
-
 
 //Move Car
 window.addEventListener('keydown',function(event,KeyboardEvent) {
@@ -61,7 +58,7 @@ function play() {
     brickwall.moveDown();
     car.drawCar();
     checkCollisions();
-    document.getElementById('score').innerHTML = 'Score: ' + point;  
+    document.getElementById('score').innerHTML = 'Score: ' + point;
 }
 
 //Set time loop
